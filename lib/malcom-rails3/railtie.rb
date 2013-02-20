@@ -15,6 +15,7 @@ module Malcom
 
   def settings=(settings)
     @settings = settings
+    @settings["environment"] = (Rails.env == "production" ? "PRODUCTION" : "SANDBOX")
   end
 end
 

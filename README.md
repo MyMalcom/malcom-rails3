@@ -1,24 +1,25 @@
 # Malcom
 
-TODO: Write a gem description
+A library for sending push notifications through Malcom API from a Rails application.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'malcom-rails3'
+    gem 'malcom-rails3', :git => 'git@github.com:mymalcom/malcom-rails3.git'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install malcom-rails3
-
 ## Usage
 
-TODO: Write usage instructions here
+Create a malcom.yml configuration file with the same structure as database.yml and the following parameters:
+
+* uri
+* user
+* password
+* uuid
 
 ## Contributing
 
