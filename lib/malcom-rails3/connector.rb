@@ -1,7 +1,11 @@
 module Malcom
   module Connector
+    extend self
+
     def push(message, custom_field, udids)
-      raise "Must be an array of UDIDs" unless udids && udids.kind_of?(Array)
+      raise "Must pass an array of UDIDs" unless udids && udids.kind_of?(Array)
+      raise "Must pass a dictionary of key and value for the custom field" unless custom_field && custom_field.kind_of?(Hash)
+      raise "Must pass a non-blank message" unless message && message.length > 0
       notification = {
         "notification" => {
           "environment" => Malcom.settings["environment"],
@@ -25,7 +29,7 @@ module Malcom
     def do_get(notification)
       uri = URI.parse(Malcom.settings["uri"])
       
-      rq = Net::HTTP::Get.new(uri.request_uri)
+      rq = Net::HTTP::Post.new(uri.request_uri)
       rq.basic_auth Malcom.settings["user"], Malcom.settings["password"]
       rq.body = notification
       rq["Content-Type"] = "application/json"
