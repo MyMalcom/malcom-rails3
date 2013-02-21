@@ -6,7 +6,7 @@ A library for sending push notifications through Malcom API from a Rails applica
 
 Add this line to your application's Gemfile:
 
-    gem 'malcom-rails3', :git => 'git@github.com:mymalcom/malcom-rails3.git'
+    gem 'malcom-rails3', :git => 'https://github.com/mymalcom/malcom-rails3.git'
 
 And then execute:
 
