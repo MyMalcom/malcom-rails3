@@ -2,10 +2,11 @@ module Malcom
   module Connector
     extend self
 
-    def push(message, custom_field, udids)
+    def push(platform, message, custom_field, udids)
       raise "Must pass an array of UDIDs" unless udids && udids.kind_of?(Array)
       raise "Must pass a dictionary of key and value for the custom field" unless custom_field && custom_field.kind_of?(Hash)
       raise "Must pass a non-blank message" unless message && message.length > 0
+      raise "Must pass a non-blank platform" unless platform && platform.length > 0
       notification = {
         "notification" => {
           "environment" => Malcom.settings["environment"],
@@ -18,7 +19,7 @@ module Malcom
             }
           },
           "udids" => udids,
-          "applicationCode" => Malcom.settings["uuid"]
+          "applicationCode" => Malcom.settings["platform_udid"][platform]
         }
       }
       do_get(notification.to_json)
