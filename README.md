@@ -25,13 +25,17 @@ Example:
       uri: http://api.mymalcom.com:80/v3/notification/push
       user: devuser
       password: changeme
-      uuid: bfcf9xx5-4d97-ead0-bOd3-818e76O82bdi
+				platform_udid:
+    			android: bfcf9xx5-4d97-ead0-bOd3-818e76O82bdi
+			    ios: bfcf9xx5-4d97-ead0-bOd3-818e76O82bdi
 
     production:
       uri: http://api.mymalcom.com:80/v3/notification/push
       user: prouser
       password: ultrasecret
-      uuid: 18e79xx5-ead0-4d97-bOd3-bfcf86O82bdi
+				platform_udid:
+    			android: 18e79xx5-ead0-4d97-bOd3-bfcf86O82bdi
+			    ios: 18e79xx5-ead0-4d97-bOd3-bfcf86O82bdi
 
 ## Contributing
 
